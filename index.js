@@ -18,15 +18,19 @@ web3.eth.getBalance(receivingAddress).then(console.log);
 
 CREATE A TRANSACTION
 ##########################*/
+function ascii_2_0xhex(num){
+    return "0x" + num.toString(16)
+  }
+  
 
 // -- Step 4: Set up the transaction using the transaction variables as shown 
 const rawTransaction = {
-     nonce: 0, 
+     nonce: ascii_2_0xhex(0), 
      to: receivingAddress, 
-     gasPrice: 20000000, 
-     gasLimit: 30000, 
-     value: 100, 
-     data: "" 
+     gasPrice: ascii_2_0xhex(20000000), 
+     gasLimit: ascii_2_0xhex(30000), 
+     value: ascii_2_0xhex(100), 
+     data: null
     }
 
 // -- Step 5: View the raw transaction rawTransaction
@@ -39,6 +43,7 @@ const rawTransaction = {
 
 Sign the Transaction
 ##########################*/
+
 
 // -- Step 7: Sign the transaction with the Hex value of the private key of the sender 
 const privateKeySender = '463b294d4c33ccbdd79ad82b3487f98c407685199118b83191e5f5c7dc55ca07' ;
