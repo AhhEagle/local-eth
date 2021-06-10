@@ -25,7 +25,7 @@ function ascii_2_0xhex(num){
 
 // -- Step 4: Set up the transaction using the transaction variables as shown 
 const rawTransaction = {
-     nonce: ascii_2_0xhex(0), 
+     nonce: ascii_2_0xhex(1), 
      to: receivingAddress, 
      gasPrice: ascii_2_0xhex(20000000), 
      gasLimit: ascii_2_0xhex(30000), 
@@ -59,4 +59,5 @@ Send the transaction to the network
 // -- Step 8: Send the serialized signed transaction to the Ethereum network. 
 const serializedTransaction = transaction.serialize();
  web3.eth.sendSignedTransaction(serializedTransaction);
+ web3.eth.getGasPrice().then(console.log);
 
